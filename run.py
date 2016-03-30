@@ -183,8 +183,7 @@ def setup_model(p):
 
     # Load parameters if requested
     if p.get('load_from'):
-        with open(p.load_from + '/trained_params.npz') as f:
-            loaded = numpy.load(f)
+        with numpy.load(p.load_from + '/trained_params.npz') as loaded:
             cg = ComputationGraph([ladder.costs.total])
             current_params = VariableFilter(roles=[PARAMETER])(cg.variables)
             logger.info('Loading parameters: %s' % ', '.join(loaded.keys()))
