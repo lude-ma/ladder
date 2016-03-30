@@ -265,7 +265,7 @@ def setup_data(p, test_set=False):
 
     # Only touch test data if requested
     if test_set:
-        d.test = dataset_class("test")
+        d.test = dataset_class(["test"])
         d.test_ind = numpy.arange(d.test.num_examples)
 
     # Setup optional whitening, only used for Cifar-10
